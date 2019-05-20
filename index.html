@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+        function doCompute(){   
+            var basicsalary=window.document.getElementById("basicsalary").value;            
+            var hra=basicsalary*.30;
+            var da=basicsalary*.10;
+            var ta=basicsalary*.20;
+            var pf=basicsalary*.05;
+            pf=pf*2;
+            var gs=parseInt(basicsalary)+hra+da+ta-pf;
+            var tax;
+            if(gs<=300000)            
+             tax=gs*.10;                             
+            else if(gs>300000 && gs<=500000)            
+                tax=gs*.20;            
+            else
+                tax=gs*.30;
+            var ns=gs-tax;         
+            window.document.getElementById('basic').innerText=basicsalary;     
+            window.document.getElementById('hra').innerText=hra;
+            window.document.getElementById("da").innerText=da;
+            window.document.getElementById("ta").innerText=ta;
+            window.document.getElementById("pf").innerText=pf;
+            window.document.getElementById("tax").innerText=tax;
+            window.document.getElementById("gs").innerText=gs;
+            window.document.getElementById("ns").innerText=ns;
+
+        }  
+    </script>
+</head>
+<body>
+    <label>BASIC SALARY</label>
+    <input type="text" id="basicsalary" placeholder="enter basic salary ">
+    <p><button  onclick="doCompute()">compute</button></p>
+    <hr>
+    <fieldset>
+        <legend>SALARY DETAILS</legend>
+        <p>BASIC SALARY IS &nbsp<span id="basic"></span></p>
+        <p>HRA IS &nbsp<span id="hra"></span></p>
+        <p>DA IS &nbsp <span id="da"></span></p>
+        <p>TA IS &nbsp<span id="ta"></span></p>
+        <p>PF IS &nbsp<span id="pf"></span></p>
+        <p>Tax IS &nbsp<span id="tax"></span></p>
+        <p>GS IS &nbsp<span id="gs"></span></p>
+        <p>NS IS &nbsp<span id="ns"></span></p>
+    </fieldset>
+
+</body>
+</html>
